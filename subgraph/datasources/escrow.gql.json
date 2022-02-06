@@ -1,0 +1,12 @@
+[
+  {
+    "name": "DealPurchase",
+    "fields": [
+      { "name": "transaction", "type": "Transaction!" },
+      { "name": "productId", "type": "BigInt!" },
+      { "name": "value", "type": "BigDecimal!" },
+      { "name": "buyer", "type": "Bytes!" },
+      { "name": "seller", "type": "Bytes!" }
+    ]
+  }
+]

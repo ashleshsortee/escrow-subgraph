@@ -1,0 +1,19 @@
+- kind: ethereum/contract
+  name: Escrow
+  network: mumbai
+  source:
+    address: "0xa7eF670AD748daB84f4E2D3334E1Cea8fC4DDAC5"
+    abi: Escrow
+  mapping:
+    kind: ethereum/events
+    apiVersion: 0.0.5
+    language: wasm/assemblyscript
+    entities:
+      - DealPurchase
+    abis:
+      - name: Escrow
+        file: ../abis/Escrow.json
+    eventHandlers:
+      - event: Purchase(uint256,uint256,address,address)
+        handler: handlePurchase
+    file: ../subgraph/datasources/escrow.ts
