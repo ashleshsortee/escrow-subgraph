@@ -24,11 +24,9 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 module.exports = {
   solidity: "0.8.4",
   networks: {
-    ropsten: {
-      url: "https://rpc-mumbai.matic.today",
-      accounts: [
-        "81f6b4fe8e75ab2e0ace9fa2938c050716a9ab30d3cfebe9083d79bc661ca5a6",
-      ],
+    matic: {
+      url: process.env.MATIC_RPC_URL,
+      accounts: process.env.MATIC_PVT_KEY,
     },
   },
   gasReporter: {
@@ -36,6 +34,6 @@ module.exports = {
     currency: "USD",
   },
   etherscan: {
-    apiKey: "QFSG2SC7IDPVAWDWEGZ9A59EPIC3TZ9QWV",
+    apiKey: process.env.ETHERSCAN_API_KEY,
   },
 };
