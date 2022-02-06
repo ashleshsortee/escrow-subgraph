@@ -1,0 +1,16 @@
+{
+  "output": "generated/sample.",
+  "chain": "mumbai",
+  "datasources": [
+    {
+      "address": "0x1878F3f61fE86e42AfCb38F6A54B97fAb97A0571",
+      "startBlock": 24625563,
+      "module": ["erc20"]
+    },
+    {
+      "address": "0xa7eF670AD748daB84f4E2D3334E1Cea8fC4DDAC5",
+      "startBlock": 24625563,
+      "module": ["escrow"]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+specVersion: 0.0.2
+schema:
+  file: sample.schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: erc20
+    network: mumbai
+    source:
+      address: "0x1878F3f61fE86e42AfCb38F6A54B97fAb97A0571"
+      abi: IERC20
+      startBlock: 24625563
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - ERC20Contract
+      abis:
+        - name: IERC20
+          file: ../node_modules/@openzeppelin/contracts/build/contracts/IERC20Metadata.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ../node_modules/@openzeppelin/subgraphs/src/datasources/erc20.ts
+  - kind: ethereum/contract
+    name: Escrow
+    network: mumbai
+    source:
+      address: "0xa7eF670AD748daB84f4E2D3334E1Cea8fC4DDAC5"
+      abi: Escrow
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - DealPurchase
+      abis:
+        - name: Escrow
+          file: ../abis/Escrow.json
+      eventHandlers:
+        - event: Purchase(uint256,uint256,address,address)
+          handler: handlePurchase
+      file: ../subgraph/datasources/escrow.ts

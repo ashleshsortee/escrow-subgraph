@@ -22,5 +22,16 @@
     "prettier-plugin-solidity": "^1.0.0-beta.19",
     "solhint": "^3.3.6",
     "solidity-coverage": "^0.7.18"
+  },
+  "dependencies": {
+    "@amxx/graphprotocol-utils": "^1.1.0-alpha.2",
+    "@graphprotocol/graph-cli": "^0.26.0",
+    "@openzeppelin/subgraphs": "^0.1.7-1"
+  },
+  "scripts": {
+    "graph:compile": "yarn graph-compiler --config subgraph.config.json --include node_modules/@openzeppelin/subgraphs/src/datasources subgraph/datasources --export-schema --export-subgraph",
+    "graph:codegen": "yarn graph codegen generated/sample.subgraph.yaml",
+    "graph:build": "yarn graph build generated/sample.subgraph.yaml",
+    "graph:deploy": "yarn graph deploy --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/ ashlesh-settlemint/escrow generated/sample.subgraph.yaml"
   }
 }
